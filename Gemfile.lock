@@ -88,7 +88,11 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    declarative (0.0.20)
     diff-lcs (1.5.1)
+    disposable (0.6.3)
+      declarative (>= 0.0.9, < 1.0.0)
+      representable (>= 3.1.1, < 4)
     drb (2.2.1)
     erubi (1.13.0)
     factory_bot (6.4.6)
@@ -100,6 +104,8 @@ GEM
       i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hashie (5.0.0)
+    hirb (0.7.3)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
@@ -119,6 +125,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.1)
     msgpack (1.7.2)
+    multi_json (1.15.0)
     mutex_m (0.2.0)
     net-imap (0.4.14)
       date
@@ -190,8 +197,16 @@ GEM
     rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
+    reform (2.6.2)
+      disposable (>= 0.5.0, < 1.0.0)
+      representable (>= 3.1.1, < 4)
+      uber (< 0.2.0)
     reline (0.5.9)
       io-console (~> 0.5)
+    representable (3.2.0)
+      declarative (< 0.1.0)
+      trailblazer-option (>= 0.1.1, < 0.2.0)
+      uber (< 0.2.0)
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.2)
@@ -222,8 +237,37 @@ GEM
     stringio (3.1.1)
     thor (1.3.1)
     timeout (0.4.1)
+    trailblazer (2.1.3)
+      trailblazer-activity-dsl-linear (>= 1.2.3, < 1.3.0)
+      trailblazer-developer (>= 0.1.0, < 0.2.0)
+      trailblazer-macro (>= 2.1.15, < 2.2.0)
+      trailblazer-macro-contract (>= 2.1.4, < 2.2.0)
+      trailblazer-operation (>= 0.9.0, < 1.0.0)
+    trailblazer-activity (0.16.2)
+      trailblazer-context (~> 0.5.0)
+      trailblazer-option (~> 0.1.0)
+    trailblazer-activity-dsl-linear (1.2.5)
+      trailblazer-activity (>= 0.16.0, < 0.17.0)
+      trailblazer-declarative (>= 0.0.1, < 0.1.0)
+    trailblazer-context (0.5.1)
+      hashie (>= 3.0.0)
+    trailblazer-declarative (0.0.2)
+    trailblazer-developer (0.1.0)
+      hirb
+      trailblazer-activity-dsl-linear (>= 1.2.0, < 1.3.0)
+    trailblazer-macro (2.1.16)
+      trailblazer-activity-dsl-linear (>= 1.2.0, < 1.3.0)
+      trailblazer-operation (>= 0.10.1)
+    trailblazer-macro-contract (2.1.5)
+      reform (>= 2.2.0, < 3.0.0)
+      trailblazer-activity-dsl-linear (>= 1.2.0, < 1.3.0)
+    trailblazer-operation (0.10.1)
+      trailblazer-activity-dsl-linear (>= 1.2.0, < 1.4.0)
+      trailblazer-developer (>= 0.1.0, < 0.2.0)
+    trailblazer-option (0.1.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uber (0.1.0)
     webrick (1.8.1)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -251,11 +295,14 @@ DEPENDENCIES
   debug
   factory_bot_rails
   faker
+  multi_json
   pry
   puma (>= 5.0)
   rails (~> 7.1.4)
+  representable
   rspec-rails
   sqlite3 (>= 1.4)
+  trailblazer
   tzinfo-data
 
 RUBY VERSION

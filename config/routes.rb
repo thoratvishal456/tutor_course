@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :courses, only: [:create, :index]
+  resources :courses, only: %i[create update index]
 end
